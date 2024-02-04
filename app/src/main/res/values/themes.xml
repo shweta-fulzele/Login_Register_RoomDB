@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MedduEducationProject" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primaryLightBlue</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+    </style>
+
+    <style name="Theme.MedduEducationProject" parent="Base.Theme.MedduEducationProject" />
+
+
+<!--    Edittext Theme   -->
+    <style name="EditTextTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Set boxBackgroundMode to none to remove the box stroke -->
+        <item name="boxBackgroundMode">none</item>
+    </style>
+</resources>

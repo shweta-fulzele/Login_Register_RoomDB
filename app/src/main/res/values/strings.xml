@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MedduEducationProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">LOGIN</string>
+    <string name="register">Register</string>
+    <string name="meddu_education">Meddu \n Education</string>
+    <string name="forward_your_password">Forget your password</string>
+    <string name="dont_have_an_account">Don\'t have an account? Sign up</string>
+    <string name="already_have_an_account">Already have an account? Sign in</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup">SIGNUP</string>
+    <string name="toggle_password_visibility">Toggle password visibility</string>
+    <string name="add_users">add users</string>
+    <string name="list_of_users">List of Users</string>
+    <string name="add_user">ADD USER</string>
+</resources>
