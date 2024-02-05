@@ -45,7 +45,7 @@ class SignupViewModel(private val repository: MedduRepository, application: Appl
 
     private val _errorToastUsername = MutableLiveData<Boolean>()
 
-    val erroToastUsername: LiveData<Boolean>
+    val errorToastUsername: LiveData<Boolean>
         get() = _errorToastUsername
 
 

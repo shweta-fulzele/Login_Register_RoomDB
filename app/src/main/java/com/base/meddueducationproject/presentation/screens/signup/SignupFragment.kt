@@ -44,7 +44,7 @@ class SignupFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        registerViewModel.navigateto.observe(viewLifecycleOwner, Observer { hasFinished->
+        registerViewModel.navigateTo.observe(viewLifecycleOwner, Observer { hasFinished->
             if (hasFinished == true){
                 registerViewModel.doneNavigating()
                 buttonClickListener?.onLoginButtonClick()
@@ -56,17 +56,17 @@ class SignupFragment : Fragment() {
         })
 
 
-        registerViewModel.errotoast.observe(viewLifecycleOwner, Observer { hasError->
+        registerViewModel.errorToast.observe(viewLifecycleOwner, Observer { hasError->
             if(hasError==true){
                 Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
-                registerViewModel.donetoast()
+                registerViewModel.doneToast()
             }
         })
 
-        registerViewModel.errotoastUsername.observe(viewLifecycleOwner, Observer { hasError->
+        registerViewModel.errorToastUsername.observe(viewLifecycleOwner, Observer { hasError->
             if(hasError==true){
                 Toast.makeText(requireContext(), "UserName Already taken", Toast.LENGTH_SHORT).show()
-                registerViewModel.donetoastUserName()
+                registerViewModel.doneToastUserName()
             }
         })
 
