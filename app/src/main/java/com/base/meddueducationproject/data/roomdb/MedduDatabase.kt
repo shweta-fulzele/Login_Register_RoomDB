@@ -5,18 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [RegisterEntity::class], version = 1, exportSchema = false)
-abstract class RegisterDatabase : RoomDatabase() {
+@Database(entities = [MedduEntity::class], version = 1, exportSchema = false)
+abstract class MedduDatabase : RoomDatabase() {
 
-    abstract val registerDatabaseDao: RegisterDatabaseDao
-
+    abstract val registerDatabaseDao: MedduDatabaseDao
     companion object {
 
         @Volatile
-        private var INSTANCE: RegisterDatabase? = null
+        private var INSTANCE: MedduDatabase? = null
 
 
-        fun getInstance(context: Context): RegisterDatabase {
+        fun getInstance(context: Context): MedduDatabase {
             synchronized(this) {
 
                 var instance = INSTANCE
@@ -24,7 +23,7 @@ abstract class RegisterDatabase : RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context,
-                        RegisterDatabase::class.java,
+                        MedduDatabase::class.java,
                         "user_details_database"
                     )
                         .fallbackToDestructiveMigration()

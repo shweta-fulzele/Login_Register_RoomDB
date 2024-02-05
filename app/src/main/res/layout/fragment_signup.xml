@@ -7,7 +7,7 @@
 
         <variable
             name="myViewModel"
-            type="com.base.meddueducationproject.presentation.screens.register.RegisterViewModel" />
+            type="com.base.meddueducationproject.presentation.screens.signup.SignupViewModel" />
     </data>
 
     <LinearLayout
@@ -41,14 +41,15 @@
                     android:id="@+id/til_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/name"
+                    android:hint="@string/username"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_signup_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:text="@={myViewModel.inputUsername}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +78,8 @@
                         android:id="@+id/et_signup_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="phone" />
+                        android:inputType="phone"
+                        android:text="@={myViewModel.inputPhoneNumber}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -104,7 +108,8 @@
                         android:id="@+id/et_signup_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:text="@={myViewModel.inputEmail}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,6 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -133,7 +139,8 @@
                         android:id="@+id/et_signup_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:text="@={myViewModel.inputPassword}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -152,6 +159,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_gradient"
                 android:fontFamily="@font/notosansbold"
+                android:onClick="@{()->myViewModel.submitButton()}"
                 android:paddingHorizontal="54dp"
                 android:paddingVertical="12dp"
                 android:textSize="18sp">
