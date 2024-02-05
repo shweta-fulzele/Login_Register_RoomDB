@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Register_users_table")
-data class RegisterEntity(
+data class MedduEntity(
 
     @ColumnInfo(name = "user_id", typeAffinity = ColumnInfo.INTEGER)
     @PrimaryKey(autoGenerate = true)

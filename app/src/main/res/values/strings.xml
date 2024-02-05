@@ -18,4 +18,5 @@
     <string name="add_users">add users</string>
     <string name="list_of_users">List of Users</string>
     <string name="add_user">ADD USER</string>
+    <string name="username">Username</string>
 </resources>

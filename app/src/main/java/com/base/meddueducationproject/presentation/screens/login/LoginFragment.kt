@@ -10,36 +10,28 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.base.meddueducationproject.R
-import com.base.meddueducationproject.data.repository.RegisterRepository
-import com.base.meddueducationproject.data.roomdb.RegisterDatabase
+import com.base.meddueducationproject.data.repository.MedduRepository
+import com.base.meddueducationproject.data.roomdb.MedduDatabase
 import com.base.meddueducationproject.databinding.FragmentLoginBinding
 import com.base.meddueducationproject.presentation.interfaceutils.OnButtonClickListener
 import com.base.meddueducationproject.presentation.screens.home.HomeScreen
 
 
 class LoginFragment : Fragment() {
-
     private lateinit var binding: FragmentLoginBinding
     private lateinit var loginViewModel: LoginViewModel
-
-    //    Interface for changing fragment from hosting activity
     private var buttonClickListener: OnButtonClickListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding.lifecycleOwner = this
 
-
         val application = requireNotNull(this.activity).application
-
-        val dao = RegisterDatabase.getInstance(application).registerDatabaseDao
-
-        val repository = RegisterRepository(dao)
-
+        val dao = MedduDatabase.getInstance(application).registerDatabaseDao
+        val repository = MedduRepository(dao)
         val factory = LoginViewModelFactory(repository, application)
 
         loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
@@ -47,18 +39,18 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = loginViewModel
 
         binding.lifecycleOwner = this
-        loginViewModel.navigatetoUserDetails.observe(viewLifecycleOwner) {
+        loginViewModel.navigateToUserDetails.observe(viewLifecycleOwner) {
             Toast.makeText(context, "$it in success", Toast.LENGTH_SHORT).show()
             if (it) {
                 onLoginSuccess()
             }
         }
 
-        loginViewModel.errotoast.observe(viewLifecycleOwner) {
+        loginViewModel.errorToast.observe(viewLifecycleOwner) {
             Toast.makeText(context, "$it in error toast", Toast.LENGTH_SHORT).show()
         }
 
-        loginViewModel.errotoastUsername.observe(viewLifecycleOwner) {
+        loginViewModel.erroToastUsername.observe(viewLifecycleOwner) {
             Toast.makeText(context, "$it in errorToastUsername", Toast.LENGTH_SHORT).show()
         }
 
@@ -66,21 +58,21 @@ class LoginFragment : Fragment() {
             Toast.makeText(context, "$it in errorToastInvalidPassword", Toast.LENGTH_SHORT).show()
         }
         binding.loginButton.setOnClickListener {
-            loginViewModel.inputUsername.value = binding.etLoginEmail.text.toString()
+            loginViewModel.inputUsername.value = binding.etLoginUsername.text.toString()
             loginViewModel.inputPassword.value = binding.etLoginPassword.text.toString()
             login()
+        }
+
+        binding.tvDontHaveAccount.setOnClickListener{
+            buttonClickListener?.onSignupButtonClick()
         }
 
         return binding.root
     }
 
     private fun login() {
-//        TODO("Not yet implemented")
         loginViewModel.loginButton()
     }
-
-
-    // Function to set the button click listener
     fun setOnButtonClickListener(listener: OnButtonClickListener) {
         buttonClickListener = listener
     }
