@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosansextrabold"
-            android:text="@string/register"
+            android:text="@string/signup"
             android:textAlignment="center"
             android:textColor="@color/primaryText"
             android:textSize="24sp" />
